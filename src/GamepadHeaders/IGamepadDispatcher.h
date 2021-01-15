@@ -14,7 +14,8 @@ namespace gamepad {
   class IGamepadDispatcher {
    public:
     virtual IGamepadDispatcher& registerCallback(std::function<void(const Gamepad&)> callback) = 0;
-    virtual void update(Gamepad input) = 0;
+    virtual void update(Gamepad* input) = 0;
+    virtual void sendInput(Gamepad input) = 0;
   };
 
   GPL_DLL IGamepadDispatcher& GetDispatcher();

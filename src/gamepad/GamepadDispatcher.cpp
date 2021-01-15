@@ -12,9 +12,11 @@ namespace gamepad {
     callbacks.push_back(callback);
     return *this;
   }
-  void GamepadDispatcher::update(Gamepad input) {
+  void GamepadDispatcher::update(Gamepad* input) {
     for (auto callback : callbacks) {
-      callback(input);
+      callback(*input);
     }
   }
+  void GamepadDispatcher::sendInput(Gamepad input) {}
+
 }  // namespace gamepad
